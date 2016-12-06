@@ -47,3 +47,60 @@
 <p><%= @stations.find(@stations.oldest_station).name %></p>
 <p>Installation Date: <%= @stations.find(@stations.most_recently_installed).installation_date %></p>
 </div>
+
+<div class="stations-dashboard-rides-started-at-station">
+<h2>Rides Started At Station</h2>
+<% @stations.total.each do |id|%>
+<h3><%= @stations.find(id).name %></h3>
+<p><%= @trips.stations.find(id).count %> #this isn't totally right yet, don't worry, just setting things up
+<% end %>
+</div>
+
+<div class="stations-dashboard-rides-ended-at-station">
+<h2>Rides Ended At Station</h2>
+<% @stations.total.each do |id|%>
+<h3><%= @stations.find(id).name %></h3>
+<p><%= @trips.stations.find(id).count %> #this isn't totally right yet, don't worry, just setting things up
+<% end %>
+</div>
+
+<div class="stations-dashboard-most-frequent-destination">
+<h2>Most Frequent Destination from Station</h2>
+<% @stations.total.each do |id|%>
+<h3><%= @stations.find(id).name %></h3>
+<p><%= @trips.stations.find(id).count %> #this isn't totally right yet, don't worry, just setting things up
+<% end %>
+</div>
+
+<div class="stations-dashboard-most-frequent-origin">
+<h2>Most Frequent Origin for Rides Ending at Station</h2>
+<% @stations.total.each do |id|%>
+<h3><%= @stations.find(id).name %></h3>
+<p><%= @trips.stations.find(id).count %> #this isn't totally right yet, don't worry, just setting things up
+<% end %>
+</div>
+
+<div class="stations-dashboard-most-frequent-date">
+<h2>Date of the Highest Number of Trips Starting per Station</h2>
+<% @stations.total.each do |id|%>
+<h3><%= @stations.find(id).name %></h3>
+<p><%= @trips.stations.find(id).count %> #this isn't totally right yet, don't worry, just setting things up
+<% end %>
+</div>
+
+<div class="stations-dashboard-most-frequent-zip">
+<h2>Most Frequent Zip Code for Users Starting at Station</h2>
+<% @stations.total.each do |id|%>
+<h3><%= @stations.find(id).name %></h3>
+<p><%= @trips.stations.find(id).count %> #this isn't totally right yet, don't worry, just setting things up
+<% end %>
+</div>
+
+<div class="stations-dashboard-most-used-bike">
+<h2>Bike ID with Most Uses at Station</h2>
+<% @stations.total.each do |id|%>
+<h3><%= @stations.find(id).name %></h3>
+<p><%= @trips.stations.find(id).count %> #this isn't totally right yet, don't worry, just setting things up
+<% end %>
+</div>
+
