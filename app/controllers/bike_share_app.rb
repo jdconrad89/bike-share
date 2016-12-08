@@ -90,29 +90,34 @@ class BikeShareApp < Sinatra::Base
   end
 
   get '/trips' do
+<<<<<<< HEAD
+    @zipcodes = Zipcode.all
+    @subscriptions = Subscription.all
+    @trips = Trip.all
+=======
     redirect "/trips/?page=1"
   end
 
   get '/trips/' do
+>>>>>>> master
     @stations = Station.all
     @trips = Trip.paginate(:page => params[:page], :per_page => 30)
     erb :"/trips/index"
   end
 
   get '/trips/new' do
+    @subscriptions = Subscription.all
+    @stations = Station.all
     @trips = Trip.all
     erb :"/trips/new"
   end
 
   post '/trips' do
-    station1 = Station.find(params[:trip][:start_station_id])
-    station2 = Station.find(params[:trip][:end_station_id])
-    subscription = Subscription.find_by(name: params[:subscription][:name])
-    trip = Trip.new(params[:trip])
-    trip.start_station_id = station1.id
-    trip.end_station_id = station2.id
-    trip.subscription = subscription
-    trip.save!
+    params[:trip][:start_station] = Station.find_by(name: params[:start_station][:name])
+    params[:trip][:end_station]   = Station.find_by(name: params[:end_station][:name])
+    params[:trip][:subscription]  = Subscription.find_by(name: params[:subscription][:name])
+    trip = Trip.create(params[:trip])
+
     redirect "/trips/#{trip.id}"
   end
 
@@ -123,6 +128,8 @@ class BikeShareApp < Sinatra::Base
   end
 
   get '/trips/:id/edit' do
+    @subscriptions = Subscription.all
+    @stations = Station.all
     @trip = Trip.find(params[:id])
     erb :"/trips/edit"
   end
