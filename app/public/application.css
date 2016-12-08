@@ -32,6 +32,38 @@
   text-align: center;
 }
 
+.pagination {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pagination .disabled {
+  color: #555;
+  padding: 3px 6px;
+}
+
+.pagination a {
+  color: #222;
+  padding: 3px 6px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background-color: rgba(255,255,255,0.1);
+  border-radius: 2px;
+}
+
+.pagination .current {
+  color: #222;
+  padding: 3px 6px;
+  border: 1px solid rgba(255,255,255,0.5);
+  background-color: rgba(255,255,255,0.3);
+  border-radius: 2px;
+}
+
+.pagination a:hover {
+  border: 1px solid rgba(255,255,255,0.5);
+  background-color: rgba(255,255,255,0.3);
+  text-decoration: none;
+}
+
 /* ~~~~~~~ LAYOUT ~~~~~~~*/
 body {
   background: #B993D6; /* fallback for old browsers */
@@ -43,11 +75,17 @@ body {
 /* ~~~~~~~ NAVIGATION ~~~~~~~*/
 .navbar {
   background-color: #222;
+
 }
 .navbar li {
   color: #eee;
   display: inline-block;
   padding: 10px;
+}
+
+.navbar ul li a:hover {
+  text-decoration: none;
+  color: #FF5357;
 }
 
 .navbar ul li a{
@@ -78,6 +116,9 @@ a.dropdown-item {
 /*FOOTER*/
 .footer {
   background-color: #222;
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
 
 /*~~~~~~~ DASHBOARDS ~~~~~~~*/
@@ -92,6 +133,13 @@ a.dropdown-item {
   color: white;
 }
 
+/* ~~~~~~~ CITY ~~~~~~~*/
+
+.city-index-page-title {
+  font-size: 40px;
+  margin: 20px 0 20px 0;
+}
+
 /* ~~~~~~~ STATION ~~~~~~~*/
 /*station new*/
 form {}
@@ -99,7 +147,10 @@ form {}
 .new-city-prompt {}
 
 /*station index*/
-h1.station-index-page-title {}
+h1.station-page-title {
+  font-size: 40px;
+  margin: 20px 0 20px 0;
+}
 
 .station-info,
 .condition-info,
@@ -107,21 +158,21 @@ h1.station-index-page-title {}
   background-color: rgba(255,255,255,0.3);
   margin: 0 0 10px 0;
   padding: 10px;
+  border: 4px solid rgba(255,255,255,0.5);
+  border-radius: 2px;
 }
 
 div.station-info:hover {
-  background-color: rgba(255,255,255,0.7);
-}
-div.city-info:hover {
-  background-color: rgba(255,255,255,0.7);
-}
-div.condition-info:hover {
-  background-color: rgba(255,255,255,0.7);
-}
-div.city-info:hover {
-  background-color: rgba(255,255,255,0.7);
+  background-color: rgba(255,255,255,0.5);
 }
 
+div.condition-info:hover {
+  background-color: rgba(255,255,255,0.5);
+}
+
+div.city-info:hover {
+  background-color: rgba(255,255,255,0.5);
+}
 
 .stations-dashboard-total,
 .stations-dashboard-average,
@@ -157,12 +208,19 @@ div.city-info:hover {
 .stations-dashboard-station {
 }
 
+.show {
+  display:none;
+}
+
+.hover:hover .show{
+  display:none;
+}
 
 h2.station-name {}
 .station-id {}
 
 .station-name-list {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .station-stats-area:hover {
@@ -187,6 +245,13 @@ p.station-coordinates {}
 
   /* ~~~~~~~ TRIP ~~~~~~~*/
   /*trip new*/
+
+
+  .trip-page-title {
+    font-size: 40px;
+    margin: 20px 0 20px 0;
+  }
+
   form {}
   .new-trip-prompt {}
 

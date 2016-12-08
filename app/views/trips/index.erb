@@ -11,13 +11,11 @@
       <th>Subscription Type</th>
       <th>Zip Code</th>
       <th>Delete</th>
-      <th class="button btn btn-update">Update</th>
+      <th>Update</th>
     </tr>
   </thead>
 
   <tbody>
-    <!-- <% count = 0 %> -->
-    <th scope="row" id="total entries"></th>
     <% @trips.each do |trip| %>
     <tr>
       <td><%= trip.id %></td>
@@ -30,8 +28,8 @@
       <td><%= trip.subscription_id%></td>
       <td><%= trip.zipcode_id%></td>
       <td><form class="btn-form" id="trip_<%= trip.id %>" action="/trips/<%=trip.id%>" method="POST">
-        <input class="button btn btn-delete" type="hidden" name="_method" value="DELETE">
-        <input id="delete_trip" type="submit" value="Delete"/>
+        <input  type="hidden" name="_method" value="DELETE">
+        <input class="button btn btn-delete" id="delete_trip" type="submit" value="Delete"/>
       </form></td>
       <td><a id="Update_<%= trip.id %>" class="btn btn-update button" href="/trips/<%=trip.id%>/edit"> Update Trip<a/></td>
     </tr>
