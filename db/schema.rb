@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161207170214) do
+ActiveRecord::Schema.define(version: 20161208075319) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20161207170214) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_cities_on_name", using: :btree
   end
 
   create_table "conditions", force: :cascade do |t|
@@ -41,6 +42,8 @@ ActiveRecord::Schema.define(version: 20161207170214) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.integer  "city_id"
+    t.index ["city_id"], name: "index_stations_on_city_id", using: :btree
+    t.index ["name"], name: "index_stations_on_name", using: :btree
   end
 
   create_table "subscriptions", force: :cascade do |t|
@@ -60,12 +63,18 @@ ActiveRecord::Schema.define(version: 20161207170214) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.integer  "subscription_id"
+    t.index ["bike_id"], name: "index_trips_on_bike_id", using: :btree
+    t.index ["end_station_id"], name: "index_trips_on_end_station_id", using: :btree
+    t.index ["start_station_id"], name: "index_trips_on_start_station_id", using: :btree
+    t.index ["subscription_id"], name: "index_trips_on_subscription_id", using: :btree
+    t.index ["zipcode_id"], name: "index_trips_on_zipcode_id", using: :btree
   end
 
   create_table "zipcodes", force: :cascade do |t|
     t.integer  "zipcode"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["zipcode"], name: "index_zipcodes_on_zipcode", using: :btree
   end
 
 end
