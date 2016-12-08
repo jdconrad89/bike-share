@@ -40,6 +40,7 @@ class TripImporter
         duration_in_seconds:  duration_in_seconds,
         start_date:           start_date,
         end_date:             end_date,
+        bike_id:              bike_id
       )
 
       trip.start_station = start_station
