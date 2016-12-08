@@ -73,7 +73,7 @@ class Station < ActiveRecord::Base
 
   def date_with_most_trips
     trips = self.trip_departures.group(:start_date).count
-    trips.first[0].strftime('%m/%d/%Y')
+    trips.max_by{|k,v| v }[0].strftime('%m/%d/%Y')
   end
 
   def frequent_user_zipcode
