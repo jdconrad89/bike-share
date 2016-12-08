@@ -87,11 +87,11 @@ class BikeShareApp < Sinatra::Base
     @subscriptions = Subscription.all
     @trips = Trip.all
     @stations = Station.all
-    # @pages = Trip.paginate(:page => params[:page], :per_page => 30)
     erb :"/trips/index"
   end
 
   get '/trips/new' do
+    @subscriptions = Subscription.all
     @stations = Station.all
     @trips = Trip.all
     erb :"/trips/new"
@@ -113,6 +113,7 @@ class BikeShareApp < Sinatra::Base
   end
 
   get '/trips/:id/edit' do
+    @subscriptions = Subscription.all
     @stations = Station.all
     @trip = Trip.find(params[:id])
     erb :"/trips/edit"

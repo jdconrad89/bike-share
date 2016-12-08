@@ -1,47 +1,44 @@
+<div class="wrapper">
 <h1>Create a New Trip</h1>
 
 <form action="/trips" method="post">
-  <div class="form-group row">
-    <label for="trip[duration_in_seconds]" class="new-trip-prompt">Duration in seconds:</label>
-    <input type="integer" name="trip[duration_in_seconds]" placeholder="duration"/>
+  <div class="form-group">
+    <input type="integer" class="form-control" name="trip[duration_in_seconds]" placeholder="duration"/>
   </div>
-  <div class="form-group row">
-    <label for="trip[start_date]" class="new-trip-prompt">Start Date:</label>
-    <input type="Date" name="trip[start_date]" placeholder="start date"/>
+  <div class="form-group">
+    <input type="Date" class="form-control" name="trip[start_date]" placeholder="start date"/>
   </div>
-  <div class="form-group row">
-    <label for="trip[end_date]" class="new-trip-prompt">End Date:</label>
-    <input type="Date"  name="trip[end_date]" placeholder="end date"/>
+  <div class="form-group">
+    <input type="Date"  class="form-control" name="trip[end_date]" placeholder="end date"/>
   </div>
-  <div class="form-group row">
-    <label for="trip[start_station]" class="new-trip-prompt">Start Station:</label>
-    <input type="text" name="start_station[name]" list="stations" placeholder="start station">
+  <div class="form-group">
+    <input type="text" class="form-control" name="start_station[name]" list="stations" placeholder="start station">
     <datalist id="stations"> <% @stations.each do |station| %>
       <option value="<%= station.name %>" id="<%= station.name %>"/>
       <% end %>
     </datalist>
   </div>
-  <div class="form-group row">
-    <label for="trip[end_station]" class="new-trip-prompt">End Station:</label>
-    <input type="text" name="end_station[name]" list="stations" placeholder="end station">
+  <div class="form-group">
+    <input type="text" class="form-control" name="end_station[name]" list="stations" placeholder="end station">
     <datalist id="stations"> <% @stations.each do |station| %>
       <option value="<%= station.name %>" id="<%= station.name %>"/>
       <% end %>
     </datalist>
   </div>
-  <div class="form-group row">
-    <label for="trip[bike_id]" class="new-trip-prompt">Bike ID:</label>
-    <input type="number" step="1" name="trip[bike_id]" placeholder="bike ID"/>
+  <div class="form-group">
+    <input type="number" class="form-control" step="1" name="trip[bike_id]" placeholder="bike ID"/>
   </div>
-  <div class="form-group row">
-    <label for="trip[subscription]" class="new-trip-prompt">Subscription Type:</label>
-    <input type="text" name="subscription[name]" placeholder="subscription"/>
+  <div class="form-group">
+    <input type="text" class="form-control" name="subscription[name]" list="subscriptions" placeholder="subscription Type">
+    <datalist id="subcriptions"> <% @subscriptions.each do |subscription| %>
+      <option value="<%= subscription.name %>" id="<%= subscription.name %>"/>
+      <% end %>
+    </datalist>
   </div>
-  <div class="form-group row">
-    <label for="trip[zipcode_id]" class="new-trip-prompt">Zipcode:</label>
-    <input type="integer" name="trip[zipcode_id]" placeholder="zipcode">
+  <div class="form-group">
+    <input type="integer" class="form-control" name="trip[zipcode_id]" placeholder="zipcode">
   </div>
 
-  <input class="button" type="submit" value="Submit"/>
-</div>
+  <input class="button btn-update btn" type="submit" value="Submit"/>
 </form>
+</div>
