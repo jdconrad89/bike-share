@@ -90,16 +90,12 @@ class BikeShareApp < Sinatra::Base
   end
 
   get '/trips' do
-<<<<<<< HEAD
-    @zipcodes = Zipcode.all
-    @subscriptions = Subscription.all
-    @trips = Trip.all
-=======
     redirect "/trips/?page=1"
   end
 
   get '/trips/' do
->>>>>>> master
+     @zipcodes = Zipcode.all
+    @subscriptions = Subscription.all
     @stations = Station.all
     @trips = Trip.paginate(:page => params[:page], :per_page => 30)
     erb :"/trips/index"
