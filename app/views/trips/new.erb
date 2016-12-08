@@ -7,19 +7,27 @@
   </div>
   <div class="form-group row">
     <label for="trip[start_date]" class="new-trip-prompt">Start Date:</label>
-    <input type="datetime" name="trip[start_date]" placeholder="start date"/>
+    <input type="Date" name="trip[start_date]" placeholder="start date"/>
   </div>
   <div class="form-group row">
     <label for="trip[end_date]" class="new-trip-prompt">End Date:</label>
-    <input type="datetime"  name="trip[end_date]" placeholder="end date"/>
+    <input type="Date"  name="trip[end_date]" placeholder="end date"/>
   </div>
   <div class="form-group row">
-    <label for="trip[start_station_id]" class="new-trip-prompt">Start Station:</label>
-    <input type="integer"  name="trip[start_station_id]" placeholder="start station"/>
+    <label for="trip[start_station]" class="new-trip-prompt">Start Station:</label>
+    <input type="text" name="start_station[name]" list="stations" placeholder="start station">
+    <datalist id="stations"> <% @stations.each do |station| %>
+      <option value="<%= station.name %>" id="<%= station.name %>"/>
+      <% end %>
+    </datalist>
   </div>
   <div class="form-group row">
-    <label for="trip[end_station_id]" class="new-trip-prompt">End Station:</label>
-    <input type="integer"  name="trip[end_station_id]" placeholder="end station"/>
+    <label for="trip[end_station]" class="new-trip-prompt">End Station:</label>
+    <input type="text" name="end_station[name]" list="stations" placeholder="end station">
+    <datalist id="stations"> <% @stations.each do |station| %>
+      <option value="<%= station.name %>" id="<%= station.name %>"/>
+      <% end %>
+    </datalist>
   </div>
   <div class="form-group row">
     <label for="trip[bike_id]" class="new-trip-prompt">Bike ID:</label>

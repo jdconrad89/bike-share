@@ -10,9 +10,9 @@
 
 <form action="/trips/<%= @trip.id %>" method="POST">
   <div class="form-group">
-    <input id="Delete" class="button btn btn-primary" type="submit"  value="Delete"/>
+    <input id="Delete" class="button btn btn-delete" type="submit"  value="Delete"/>
     <input type="hidden" name="_method" value="DELETE">
   </div>
 </form>
 
-<a class="btn btn-primary button" href="/trips/<%= @trip.id %>/edit">Update trip</a>
+<a class="btn btn-update button" href="/trips/<%= @trip.id %>/edit">Update trip</a>
